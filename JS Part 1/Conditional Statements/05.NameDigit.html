@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Name Digit</title>
+    <link href="../JS Console/js-console.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <style>
+        div#console {
+            width: 615px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!--Write script that asks for a digit and depending on the input shows the name of that digit (in English) using a switch statement.-->
+    <!--Input field-->
+    <div class="next-to">
+        <label for="digit">
+            Enter digit:
+        </label>
+    </div>
+    <div class="next-to">
+        <input type="text" id="digit" />
+        <br />
+        <input type="button" id="button" value="Click!" onclick="nameDigit()" />
+    </div>
+    <br />
+
+    <!--Console-->
+    <div id="console">
+    </div>
+    <script src="../JS Console/js-console.js">
+    </script>
+
+    <!--Script-->
+    <script>
+        function nameDigit() {
+            var digit = jsConsole.readInteger("#digit");
+            var digitNamed;
+            var invalid = false;
+
+            switch (digit) {
+                case 0: digitNamed = "zero"; break;
+                case 1: digitNamed = "one"; break;
+                case 2: digitNamed = "two"; break;
+                case 3: digitNamed = "three"; break;
+                case 4: digitNamed = "four"; break;
+                case 5: digitNamed = "five"; break;
+                case 6: digitNamed = "six"; break;
+                case 7: digitNamed = "seven"; break;
+                case 8: digitNamed = "eight"; break;
+                case 9: digitNamed = "nine"; break;
+                default: invalid = true; break;
+            }
+
+            //Output
+            if (invalid) {
+                jsConsole.writeLine('Input was not a digit. Enter a digit for the naming to work.');
+            }
+            else {
+                jsConsole.writeLine('The digit name is ' + digitNamed + '.');
+            }
+        }
+    </script>
+</body>
+</html>
+
+

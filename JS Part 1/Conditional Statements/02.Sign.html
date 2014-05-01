@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign</title>
+    <link href="../JS Console/js-console.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <style>
+        div#console {
+            width: 520px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!--Write a script that shows the sign (+ or -) of the product of three real numbers without calculating it.
+        Use a sequence of if statements.-->
+    <!--Input field-->
+    <div class="next-to">
+        <label for="first-num">
+            Enter first number:
+        </label>
+        <br />
+        <label for="second-num" id="second-label">
+            Enter second number:
+        </label>
+        <br />
+        <label for="third-num" id="third-label">
+            Enter third number:
+        </label>
+    </div>
+    <div class="next-to">
+        <input type="text" id="first-num" />
+        <br />
+        <input type="text" id="second-num" />
+        <br />
+        <input type="text" id="third-num" />
+        <br />
+        <input type="button" id="button" value="Click!" onclick="checkSign()" />
+    </div>
+    <br />
+
+    <!--Console-->
+    <div id="console">
+    </div>
+    <script src="../JS Console/js-console.js">
+    </script>
+
+    <!--Script-->
+    <script>
+        function checkSign() {
+            var firstNum = jsConsole.readInteger("#first-num");
+            var secondNum = jsConsole.readInteger("#second-num");
+            var thirdNum = jsConsole.readInteger("#third-num");
+
+            if (firstNum === 0 || secondNum === 0 || thirdNum === 0) {
+                jsConsole.writeLine("The the product of the three numbers is 0, which");
+                jsConsole.writeLine("(in most cases) doesn't hava a significant sign.");
+                return;
+            }
+
+            var countMinuses = 0;
+            if (firstNum < 0) {
+                countMinuses++;
+            }
+            if (secondNum < 0) {
+                countMinuses++;
+            }
+            if (thirdNum < 0) {
+                countMinuses++;
+            }
+
+            var sign;
+            if (countMinuses % 2 === 0) {
+                sign = "+";
+            }
+            else {
+                sign = "-";
+            }
+
+            //Output
+            jsConsole.writeLine('The sign of the product of the three numbers is ' + sign);
+        }
+    </script>
+</body>
+</html>

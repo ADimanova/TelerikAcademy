@@ -1,0 +1,18 @@
+﻿div.next-to {
+    display: table-cell;
+    background-color: #83a1bd;
+}
+
+label#second-label {
+    display: inline-block;
+    margin-top: 6px;
+}
+
+div {
+    padding: 5px;
+}
+
+    div#console {
+        width: 400px;
+        height: 200px;
+    }

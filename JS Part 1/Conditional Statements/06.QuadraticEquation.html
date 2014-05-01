@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Quadratic Equation</title>
+    <link href="../JS Console/js-console.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <style>
+        div#console {
+            width: 600px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!--Write a script that enters the coefficients a, b and c of a quadratic equation
+		a*x2 + b*x + c = 0
+		and calculates and prints its real roots. Note that quadratic equations may have 0, 1 or 2 real roots.-->
+    <!--Input field-->
+    <div class="next-to">
+        <label for="a">
+            Enter a:
+        </label>
+        <br />
+        <label for="b" id="second-label">
+            Enter b:
+        </label>
+        <br />
+        <label for="c" id="third-label">
+            Enter c:
+        </label>
+    </div>
+    <div class="next-to">
+        <input type="text" id="a" />
+        <br />
+        <input type="text" id="b" />
+        <br />
+        <input type="text" id="c" />
+        <br />
+        <input type="button" id="button" value="Click!" onclick="findRoots()" />
+    </div>
+    <br />
+
+    <!--Console-->
+    <div id="console">
+    </div>
+    <script src="../JS Console/js-console.js">
+    </script>
+
+    <!--Script-->
+    <script>
+        function findRoots() {
+            var a = jsConsole.readInteger("#a");
+            var b = jsConsole.readInteger("#b");
+            var c = jsConsole.readInteger("#c");
+
+            var discriminant = b * b - 4 * a * c;
+            if (discriminant > 0) {
+                var x1 = ((-1) * b + Math.sqrt(discriminant)) / (2 * a);
+                var x2 = ((-1) * b - Math.sqrt(discriminant)) / (2 * a);
+
+                jsConsole.writeLine('The equation has two roots: ' + x1 + ', ' + x2);
+            }
+            else if (discriminant < 0) {
+                jsConsole.writeLine('The equation has no roots.');
+            }
+            else {
+                var x = -b / (2 * a);
+                jsConsole.writeLine('The equation has one root: ' + x);
+            }
+        }
+    </script>
+</body>
+</html>
+

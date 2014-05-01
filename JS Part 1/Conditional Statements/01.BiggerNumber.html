@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Greater Number</title>
+    <link href="../JS Console/js-console.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+    <!--Write an if statement that examines two integer variables and exchanges their values if the first one
+    is greater than the second one.-->
+
+    <!--Input field-->
+    <div class="next-to">
+        <label for="first-num">
+            Enter first number:
+        </label>
+        <br />
+        <label for="second-num" id="second-label">
+            Enter second number:
+        </label>
+    </div>
+    <div class="next-to">
+        <input type="text" id="first-num" />
+        <br />
+        <input type="text" id="second-num" />
+        <br />
+        <input type="button" id="button" value="Click!" onclick="checkForBigger()" />
+    </div>
+    <br />
+
+    <!--Console-->
+    <div id="console">
+    </div>
+    <script src="../JS Console/js-console.js">
+    </script>
+
+    <!--Script-->
+    <script>
+    function checkForBigger() {
+        var firstNum = jsConsole.readInteger("#first-num");
+        var secondNum = jsConsole.readInteger("#second-num");
+
+        if (firstNum > secondNum) {
+            var temp;
+            temp = firstNum;
+            firstNum = secondNum;
+            secondNum = temp;
+        }
+
+        //Output
+        jsConsole.writeLine('The first number value is ' + firstNum);
+        jsConsole.writeLine('The second number value is ' + secondNum);
+    }
+    </script>
+</body>
+</html>

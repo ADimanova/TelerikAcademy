@@ -1,0 +1,125 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Name Digit</title>
+    <link href="../JS Console/js-console.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
+    <style>
+        div#console {
+            width: 600px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!--Write a script that converts a number in the range [0...999] to a text corresponding to its English pronunciation. -->
+    <!--Input field-->
+    <div class="next-to">
+        <label for="digit">
+            Enter number:
+        </label>
+    </div>
+    <div class="next-to">
+        <input type="text" id="number" />
+        <br />
+        <input type="button" id="button" value="Click!" onclick="nameNumber()" />
+    </div>
+    <br />
+
+    <!--Console-->
+    <div id="console">
+    </div>
+    <script src="../JS Console/js-console.js">
+    </script>
+
+    <!--Script-->
+    <script>
+        function nameNumber() {
+            var number = jsConsole.readInteger("#number");
+            var numberNamed;
+
+            function getDigit(number) {
+                var digitName;
+                switch (number) {
+                    case 0: digitName = "zero"; break;
+                    case 1: digitName = "one"; break;
+                    case 2: digitName = "two"; break;
+                    case 3: digitName = "three"; break;
+                    case 4: digitName = "four"; break;
+                    case 5: digitName = "five"; break;
+                    case 6: digitName = "six"; break;
+                    case 7: digitName = "seven"; break;
+                    case 8: digitName = "eight"; break;
+                    case 9: digitName = "nine"; break;
+                }
+
+                return digitName;
+            }
+
+            function getDoubleDigits(number) {
+                var doubleDigitsNamed;
+                switch (true) {
+                    case number < 30: doubleDigitsNamed = 'twenty'; break;
+                    case number < 40: doubleDigitsNamed = 'thirty'; break;
+                    case number < 50: doubleDigitsNamed = 'firty'; break;
+                    case number < 60: doubleDigitsNamed = 'fifty'; break;
+                    case number < 70: doubleDigitsNamed = 'sixty'; break;
+                    case number < 80: doubleDigitsNamed = 'seventy'; break;
+                    case number < 90: doubleDigitsNamed = 'eighty'; break;
+                    case number < 100: doubleDigitsNamed = 'ninety'; break;
+                }
+
+                doubleDigitsNamed += '-';
+
+                digit = number % 10;
+                if (digit !== 0) {
+                    doubleDigitsNamed += getDigit(digit);
+                }
+
+                return doubleDigitsNamed;
+            }
+
+            if (number < 0 || number > 999) {
+                jsConsole.writeLine("You have entered and invalid number. Enter a number in the range of 0 and 999.");
+                return;
+            }
+            else if (number < 10) {
+                numberNamed = getDigit(number);
+            }
+            else if (number < 20) {
+                switch (number) {
+                    case 10: numberNamed = "ten"; break;
+                    case 11: numberNamed = "eleven"; break;
+                    case 12: numberNamed = "twelve"; break;
+                    case 13: numberNamed = "thirtheen"; break;
+                    case 14: numberNamed = "forteen"; break;
+                    case 15: numberNamed = "fifteen"; break;
+                    case 16: numberNamed = "sixteen"; break;
+                    case 17: numberNamed = "seventeen"; break;
+                    case 18: numberNamed = "eighteen"; break;
+                    case 19: numberNamed = "nineteen"; break;
+                }
+            }
+            else if (number < 100) {
+                numberNamed = getDoubleDigits(number);
+            }
+            else if (number < 1000) {
+                var stringedNum = number.toString(); 
+
+                var hundreds = stringedNum[0];
+                numberNamed = getDigit(parseInt(hundreds));
+                numberNamed += ' hundred ';
+
+                var tents = parseInt(stringedNum.substr(1, 2));
+                numberNamed += getDoubleDigits(tents);
+            }
+
+            //Output
+            jsConsole.writeLine('The number is ' + numberNamed + '.');
+
+        }
+    </script>
+</body>
+</html>
+
+
