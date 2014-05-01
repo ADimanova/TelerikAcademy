@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Types And Variables Homework</title>
+    <link href="styles/styleDocument.css" rel="stylesheet" />
+    <style>
+        h3{
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <!--Console for printining output on the screen.-->
+    <div id="console"></div>
+    <script src="scripts/js-console.js"></script>
+
+    <!--Task 1-->
+    <!--Assign all the possible JavaScript literals to different variables.-->
+    <script src="01.AssignLiterals.js"></script>
+
+    <!--Task 2-->
+    <!--Create a string variable with quoted text in it. For example: 'How you doin'?', Joey said.-->
+    <script src="02.QuotedText.js"></script>
+
+    <!--Task 3 and 4-->
+    <!--Try typeof on all variables you created.-->
+    <!--Create null, undefined variables and try typeof on them.-->
+    <script src="03-04.Typeof.js"></script>
+
+    <script>
+        var integer = 5;
+        var float = 5.5;
+        var stringValue = 'some text';
+        var bool = true;
+        var unknown = undefined;
+        var noValue = null;
+
+        jsConsole.writeLine('<h3>Task 1: Assigning variables:</h3>');
+        printLiterals();
+        jsConsole.writeLine('\n');
+
+        jsConsole.writeLine('<h3>Task 2: Quoted text:</h3>');
+        quoteText();
+        jsConsole.writeLine('\n');
+
+        jsConsole.writeLine('<h3>Task 3 and 4: Type of variables:</h3>');
+        printTypeof(integer, float, stringValue, bool, unknown, noValue);
+    </script>
+</body>
+</html>
